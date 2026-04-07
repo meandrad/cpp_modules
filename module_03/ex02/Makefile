@@ -6,7 +6,7 @@
 #    By: meandrad <meandrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/13 12:56:17 by meandrad          #+#    #+#              #
-#    Updated: 2026/03/17 19:43:26 by meandrad         ###   ########.fr        #
+#    Updated: 2026/04/07 19:37:42 by meandrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ FLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = main.cpp \
 	ClapTrap.cpp \
+	ScavTrap.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 
