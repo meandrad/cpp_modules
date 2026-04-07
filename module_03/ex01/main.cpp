@@ -5,67 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: meandrad <meandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 12:56:13 by meandrad          #+#    #+#             */
-/*   Updated: 2026/03/17 19:45:55 by meandrad         ###   ########.fr       */
+/*   Created: 2026/04/01 16:31:05 by meandrad          #+#    #+#             */
+/*   Updated: 2026/04/07 20:05:42 by meandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
-int	main(void)
+int main()
 {
-	ClapTrap	clap4;
-
-	std::cout << "=== Creating ClapTrap's ===" << std::endl;
-	
-	ClapTrap clap1("CLAP1");
-	ClapTrap clap2("CLAP2");
-	
-	std::cout << "\n=== COMBAT! ===" << std::endl;
-	
-	clap1.attack("Someone");
-	clap1.attack("Other one");
-	
-	std::cout << "\n--- Damage ---" << std::endl;
-	
-	clap1.takeDamage(5);
-	clap1.takeDamage(3);
-	
-	std::cout << "\n--- Healing ---" << std::endl;
-	
-	clap1.beRepaired(2);
-	clap1.beRepaired(4);
-	
-	std::cout << "\n=== Testing resource depletion ===" << std::endl;
-	std::cout << "\n--- Depleting energy points ---" << std::endl;
-	
-	for (int i = 0; i < 10; i++)
 	{
-		std::cout << "Attack #" << (i + 1) << ": ";
-		clap2.attack("Target");
+		ScavTrap atlas("Atlas");
+		ScavTrap orion("Orion");
+		ScavTrap echo(atlas);
+		orion = atlas;
+
+		std::cout << "\n=== Tactical drills ===" << std::endl;
+		atlas.attack("training drone");
+		orion.guardGate();
+		echo.attack("rogue scout");
+
+		std::cout << "\n=== Energy drain (condensed) ===" << std::endl;
+		for (int i = 1; i <= 51; ++i)
+		{
+			bool shouldLabel = (i <= 3) || (i % 10 == 0) || (i > 47 && i <= 50); 
+			if (shouldLabel)
+				std::cout << "[Strike " << i << "] ";
+			atlas.attack("breacher unit");
+		}
+		std::cout << "(Strikes 4..47 omitted for brevity)" << std::endl;
+
+		std::cout << "Attempt repair after energy depletion (should be silent if no energy):" << std::endl;
+		atlas.beRepaired(10);
+
+		std::cout << "\n=== Damage and fatal damage ===" << std::endl;
+		orion.takeDamage(30);
+		orion.takeDamage(80);
+		std::cout << "Attempt attack after HP zero (should be silent):" << std::endl;
+		orion.attack("phantom target");
+		orion.guardGate();
 	}
-	
-	std::cout << "Energy depleted, this attack should fail silently: ";
-	
-	clap2.attack("Target");
-	
-	std::cout << "\n--- DEATH ---" << std::endl;
-	
-	clap2.takeDamage(15);
-	
-	std::cout << "Hit points depleted, this repair should fail silently: " << std::endl;
-	
-	clap2.beRepaired(5);
-	
-	std::cout << "\n=== Copy constructor ===" << std::endl;
-	
-	ClapTrap clap3(clap1);
-	
-	clap3.attack("Bandit");
-	clap4 = clap1;
-	clap4.attack("Badass");
-	
-	std::cout << "\n=== FINISH ===" << std::endl;
-	
-	return (0);
+	return 0;
 }
