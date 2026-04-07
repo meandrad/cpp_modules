@@ -6,7 +6,7 @@
 /*   By: meandrad <meandrad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 12:56:07 by meandrad          #+#    #+#             */
-/*   Updated: 2026/03/17 19:34:30 by meandrad         ###   ########.fr       */
+/*   Updated: 2026/04/07 19:40:43 by meandrad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class ClapTrap
 
 	public:
 		ClapTrap();
-		ClapTrap(const std::string name);
 		~ClapTrap();
 		ClapTrap(const ClapTrap &other);
 		ClapTrap& operator=(const ClapTrap &other);
