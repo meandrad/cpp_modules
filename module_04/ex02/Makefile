@@ -6,7 +6,7 @@
 #    By: meandrad <meandrad@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/03/13 12:56:17 by meandrad          #+#    #+#              #
-#    Updated: 2026/04/08 19:16:33 by meandrad         ###   ########.fr        #
+#    Updated: 2026/04/08 19:35:37 by meandrad         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ SRC = main.cpp \
 	Animal.cpp \
 	Cat.cpp \
 	Dog.cpp \
+	Brain.cpp \
 	WrongAnimal.cpp \
 	WrongCat.cpp
 
